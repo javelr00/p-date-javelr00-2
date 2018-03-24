@@ -13,21 +13,21 @@ package es.unileon.prg.tema6;
 import java.io.* ;
 /**
  *  Clase que permite leer valores simples de la linea de comandos.
- *  Si ocurre un error durante la lectura las excepciones lanzadas 
+ *  Si ocurre un error durante la lectura las excepciones lanzadas
  *  son capturadas y  se retorna el menor valor representable
  *  del tipo de datos leido.
- *  
- *  Nota: esta no es una muy buena opcion de tratar los posibles errores. En futuras versiones 
+ *
+ *  Nota: esta no es una muy buena opcion de tratar los posibles errores. En futuras versiones
  *  (cuendo se explique la gestion de excepciones) se mejorara este tratamiento.
  *
  *  @version 1.0
  *  @author PRG
  */
 public class Teclado {
-  
+
   /**
-  * Stream para leer lineas de la entrada standar (por defecto el teclado) 
-  * 
+  * Stream para leer lineas de la entrada standar (por defecto el teclado)
+  *
   * @see BufferedReader
   * @seeInputStreamReader
   * @see System.in
@@ -36,15 +36,15 @@ public class Teclado {
     new BufferedReader(new InputStreamReader (System.in)) ;
   /**
    * Atributo para almacenar la linea ledia por teclado
-   * 
+   *
    * @see String
    */
   private static String input;
-  
+
   /**
-   *  Lee un <CODE>int</CODE> introducido por el teclado. 
-   *  
-   *  
+   *  Lee un <CODE>int</CODE> introducido por el teclado.
+   *
+   *
    *  @return Retorna el valor introducido por el teclado. Si se introduce un valor que no es correcto se retorna el minimo
    *  valor representable  en int (Integer.MIN_VALUE)
    *  @see Integer
@@ -55,20 +55,20 @@ public class Teclado {
     try {
       input = in.readLine() ;
     }
-    catch (IOException e) { error("standard input"); } 
+    catch (IOException e) { error("standard input"); }
     try {
       value = Integer.parseInt(input) ;
     }
-    catch (NumberFormatException e) { 
+    catch (NumberFormatException e) {
         	value=Integer.MIN_VALUE;
     }
     return value ;
   }
 
   /**
-   *  Lee un <CODE>short</CODE> introducido por el teclado. 
-   *  
-   *  
+   *  Lee un <CODE>short</CODE> introducido por el teclado.
+   *
+   *
    *  @return Retorna el valor introducido por el teclado. Si se introduce un valor que no es correcto se retorna el minimo
    *  valor representable  en short (Short.MIN_VALUE)
    *  @see Short
@@ -79,26 +79,26 @@ public class Teclado {
     try {
       input = in.readLine() ;
     }
-    catch (IOException e) { error("standard input"); } 
+    catch (IOException e) { error("standard input"); }
     try {
       value = Short.parseShort(input) ;
     }
     catch (NumberFormatException e) {
-    	value = Short.MIN_VALUE;	
+    	value = Short.MIN_VALUE;
     }
     return value ;
-    
+
   }
-  
+
   /**
-   *  Lee un <CODE>long</CODE> introducido por el teclado. 
-   *  
-   *  
+   *  Lee un <CODE>long</CODE> introducido por el teclado.
+   *
+   *
    *  @return Retorna el valor introducido por el teclado. Si se introduce un valor que no es correcto se retorna el minimo
    *  valor representable  en long (Long.MIN_VALUE)
    *  @see Long
    */
-  
+
   public static final synchronized long readLong() {
     input = "" ;
     long value = Long.MIN_VALUE;
@@ -110,20 +110,20 @@ public class Teclado {
       value = Long.parseLong(input) ;
     }
     catch (NumberFormatException e) {
-    	value = Long.MIN_VALUE;	
+    	value = Long.MIN_VALUE;
     }
     return value ;
   }
-  
-  
+
+
   /**
-   *  Lee un <CODE>float</CODE> introducido por el teclado. 
-   *  
-   *  
+   *  Lee un <CODE>float</CODE> introducido por el teclado.
+   *
+   *
    *  @return Retorna el valor introducido por el teclado. Si se introduce un valor que no es correcto se retorna el minimo
    *  valor representable  en float (Float.MIN_VALUE)
    *  @see Float
-   *    
+   *
    */
   public static final synchronized float readFloat() {
     input = "" ;
@@ -140,16 +140,14 @@ public class Teclado {
     }
     return value ;
   }
-  
-  
   /**
-   *  Lee un <CODE>long</CODE> introducido por el teclado. 
-   *  
+   *  Lee un <CODE>long</CODE> introducido por el teclado.
+   *
    *  @return Retorna el valor introducido por el teclado. Si se introduce un valor que no es correcto se retorna el minimo
    *  valor representable  en double (Double.MIN_VALUE)
    *  @see Double
    */
-  
+
   public static final synchronized double readDouble() {
     input = "" ;
     double value = Double.MIN_VALUE ;
@@ -160,32 +158,32 @@ public class Teclado {
     try {
       value = Double.parseDouble(input) ;
     }
-    catch (NumberFormatException e) { 
+    catch (NumberFormatException e) {
     	value = Double.MIN_VALUE;
     }
     return value ;
   }
-  
-  
-  
-  
+
+
+
+
   /**
-   *  Lee un <CODE>char</CODE> introducido por el teclado. 
-   *  
+   *  Lee un <CODE>char</CODE> introducido por el teclado.
+   *
    *  @return Retorna el caracter introducido por el teclado.
    */
   public static final synchronized char readChar() {
     char c = ' ' ;
     try {
-     c = (char)in.read() ;     
+     c = (char)in.read() ;
     }
     catch (IOException e) { error("standard input"); }
     return c ;
   }
-  
+
   /**
    *  Lee un <CODE>String</CODE> introducido por el teclado.
-   *  
+   *
    *  @return Retorna la cadena de caracteres introducida por el teclado.
    *  @see String
    */
@@ -200,7 +198,7 @@ public class Teclado {
     }
     return s ;
   }
-  
+
   /**
    * Lanzado cuando ocurre un error.Muestra un mensaje y termina
    */
