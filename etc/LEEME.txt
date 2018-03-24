@@ -1,10 +1,31 @@
 Practica P-CTL
 
-Alumno:
+Alumno:Javier Avellaneda Rodríguez
 
 Horas dedicadas:
 
 Problemas surgidos al realizar la practica:
 
 Respuestas a la preguntas:
+
+-Apartado 3.1.1:
+
+·Ejercicio 3:
+-En este ejercicio tenemos tres sentencias if, de las cuales sólo una se cumple, usando una tabla de verdad or y otra de and y cambiando los ceros por false y los unos por true podremos ver que en la única sentencia en la que encontramos un true (1) y por lo tanto se imprimirá es la segunda, que dice: ((!a || b) || !(n1>n2))
+((!1 || 0) || !(5>8)) -> (0||0)||!(0) -> (0)||(1) -> 1 ->true
+
+·Ejercicio 9:
+-En este ejercicio creamos dos objetos con el mismo valor numérico, y al compararlos con if obtenemos como respueta que son diferentes. Esto no ocurriría si inicializáramos estos números como enteros(u otro tipo), pero al ser creados como objetos, java no los reconoce como dos números iguales.
+
+·Ejercicio 10:
+-Este ejercicio imprime que de las cuatro sentencias que nos da, ninguna es verdadera excepto que n1 y aux son iguales, esto ocurre porque, al igual que en el caso anterior no estamos comparando dos tipos primitivos del mismo valor, sino dos objetos que contienen el mismo valor pero no son iguales. Al usar NumeroEntero aux=n1; inicializamos NumeroEntero como un objeto y lo igualamos al objeto n1, por lo cual el progrma nos de vuelve que la igualdad entre estos dos objetos es cierta.
+
+-Apartado 3.1.2:
+
+·Ejercicio 3:
+-Este ejercicio contiene errores de compilación porque estamos intentando comparar dos objetos, lo cual no es compatible con java, lo sería si lo que comparásemos fueran dos valores de tipos primitivos.
+
+
+
+
 

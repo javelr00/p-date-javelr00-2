@@ -11,7 +11,7 @@ public class Apartado030101 extends Apartado {
 	protected String obtenerPractica(){
 		return "P-CTL";
 	}
-
+ 
 	protected String obtenerBloque() {
 		return "Instruccion if";
 	}
@@ -22,31 +22,33 @@ public class Apartado030101 extends Apartado {
 	 * </br>
 	 *
 	 * Realizar las modificaciones necesarias para que al ejecutar el metodo se muestren
-	 * los datos del alumno por pantalla y  si la nota que tiene es menor que cinco 
+	 * los datos del alumno por pantalla y  si la nota que tiene es menor que cinco
 	 * que a continuacion se muestre el mensaje: El alumno debe recuperar
-	 * 
+	 *
 	 * Ejemplo de ejecucion 1
-	 * 
-	 * <pre>	NIU: 1000011111 Nombre: Juan Nota: 6</pre>           
-	 * 
+	 *
+	 * <pre>	NIU: 1000011111 Nombre: Juan Nota: 6</pre>
+	 *
 	 * Ejemplo de ejecucion 2;
-	 * 
+	 *
 	 * <pre>	NIU: 1000011111 Nombre: Juan Nota: 3.2</pre>
 	 * <pre>	El alumno debe recuperar</pre>
-	 * 
+	 *
 	 */
 	public void ejercicio01() {
 		cabecera("01","");
 
 		//Cambiar el valor de la nota para hacer pruebas
-		float nota=(float) 5.5;
-			
+		float nota=(float) 5;
+
 		Alumno alumno =new Alumno("1000011111","Juan");
 		alumno.asignarNota(nota);
 		System.out.println(alumno);
 		//Inicio modificacion
-		
-		
+		if(nota<5){
+			System.out.println("El alumno debe recuperar");
+		}
+
 		// Fin modificacion
 	}
 
@@ -55,16 +57,17 @@ public class Apartado030101 extends Apartado {
 	 *
 	 * </br>
 	 *
-	 * Basandose en el  ejercicio1 realizar las modificaciones oportunas incluyendolas 
-	 * es este metodo de forma  que al ejecutarlo se pida al usuario del programa que introduzca 
+	 * Basandose en el  ejercicio1 realizar las modificaciones oportunas incluyendolas
+	 * es este metodo de forma  que al ejecutarlo se pida al usuario del programa que introduzca
 	 * la nota del alumno.
 	 */
 	public void ejercicio02() {
 		cabecera("02", "");
 
 		// Inicio modificacion
-		
-		
+		System.out.println("Introduzca la nota del alumno\n");
+		float nota;
+		nota = Teclado.readFloat();
 		// Fin modificacion
 	}
 
@@ -73,16 +76,21 @@ public class Apartado030101 extends Apartado {
 	 *
 	 * </br>
 	 *
-	 * Basandose en el  ejercicio2 y en la documentacion de la clase Teclado, 
-	 * realizar las modificaciones oportunas incluyendolas es este metodo de forma  que si el 
-	 * usuario introduce un valor que no es un float el programa muestre el siguiente 
+	 * Basandose en el  ejercicio2 y en la documentacion de la clase Teclado,
+	 * realizar las modificaciones oportunas incluyendolas es este metodo de forma  que si el
+	 * usuario introduce un valor que no es un float el programa muestre el siguiente
 	 * mensaje: Los datos que se muestran a continuacion no son correctos
 	 */
 	public void ejercicio03() {
 		cabecera("03", "");
 
 		// Inicio modificacion
-		
+		System.out.println("Introduzca la nota del alumno\n");
+		float nota;
+		nota = Teclado.readFloat();
+		if (nota>Float.MAX_VALUE || nota<Float.MIN_VALUE) {
+			System.out.println("Los  datos  que  se  muestran  a  continuación  no  son correctos");
+		}
 		// Fin modificacion
 		System.out.println("Fin del ejercicio03");
 	}
@@ -95,7 +103,7 @@ public class Apartado030101 extends Apartado {
 	 * <ul>
 	 * <li> Compilar y ejecutar el metodo
 	 * <li> Analizar los resultados obtenidos
-	 * <li> Explicar en el fichero LEEME.txt como se evaluan las expresiones condicionales y 
+	 * <li> Explicar en el fichero LEEME.txt como se evaluan las expresiones condicionales y
 	 * 		el porque de los resultados
 	 * </ul>
 	 */
@@ -105,7 +113,7 @@ public class Apartado030101 extends Apartado {
 		boolean a = true;
 		boolean b = false;
 		int n1=5, n2=8;
-	
+
 		if ((!a && b) || !(n2>n1))
 			System.out.println("Resultado 1");
 
@@ -114,7 +122,7 @@ public class Apartado030101 extends Apartado {
 
 		if ((n1>=n2) && (a || b))
 			System.out.println("Resultado 3");
-		
+
 		System.out.println("Fin del ejercicio04");
 	}
 
@@ -125,18 +133,18 @@ public class Apartado030101 extends Apartado {
 	 *
 	 * <ul>
 	 * <li> Quitar los comentarios indicados
-	 * <li> Compilar 
+	 * <li> Compilar
 	 * <li> Identificar los errores de compilacion y modificar el codigo  para resolverlos.
 	 * </ul>
-	 * 	
+	 *
 	 */
 	public void ejercicio05() {
 		cabecera("05","");
 
 		Alumno alumno =new Alumno("1000011111","Juan");
-		int nota1=0, nota2=0, nota3=0, sumaNotas=0;
-		float media=0;
-       
+		int nota1=0, nota2=0, nota3=0;
+		float media=0, sumaNotas=0;
+
 		System.out.println("Introduce la nota del primer examen:");
 		nota1=Teclado.readInteger();
 
@@ -148,30 +156,26 @@ public class Apartado030101 extends Apartado {
 
 
 		// Inicio modificacion
-		/* -- Quitar comentarios
-		if (nota1 >=5)
-           sumaNotas=nota1;
-           if (nota2>=5)
-             sumaNotas=sumaNotas + nota2;
-             if (nota3>=5)
-                sumaNotas=sumaNotas + nota3;
-                media=sumaNotas/3;
-               
-       }
-       */
+		if (nota1>=5)
+    	sumaNotas=nota1;
+    if (nota2>=5)
+    	sumaNotas=sumaNotas + nota2;
+    if (nota3>=5)
+    	sumaNotas=sumaNotas + nota3;
+    media=sumaNotas/3;
 	   // Fin modificacion
-		
-      
+
+
        alumno.asignarNota(media);
-	
+
        System.out.println(alumno);
-	
+
 	}
 
 	/**
 	 * Instruccion if - Ejercicio6.
 	 *
-	 * Modificar el codigo del ejercicio 5 de forma que el resultado sea el mismo pero solo 
+	 * Modificar el codigo del ejercicio 5 de forma que el resultado sea el mismo pero solo
 	 * sea necesario utilizar una sentencia if.
 	 *
 	 */
@@ -179,6 +183,34 @@ public class Apartado030101 extends Apartado {
 		cabecera("06", "");
 
 		// Inicio modificacion
+		Alumno alumno =new Alumno("1000011111","Juan");
+		int nota1=0, nota2=0, nota3=0;
+		float media=0, sumaNotas=0;
+
+		System.out.println("Introduce la nota del primer examen:");
+		nota1=Teclado.readInteger();
+
+		System.out.println("Introduce la nota del segundo examen:");
+		nota2=Teclado.readInteger();
+
+		System.out.println("Introduce la nota del tercer examen:");
+		nota3=Teclado.readInteger();
+
+		if (nota1>=5){
+    	if (nota2>=5){
+    		if (nota3>=5){
+		}
+		sumaNotas=nota1;
+	}
+	sumaNotas=sumaNotas + nota2;
+}
+sumaNotas=sumaNotas + nota3;
+
+    media=sumaNotas/3;
+
+		alumno.asignarNota(media);
+
+		System.out.println(alumno);
 		// Fin modificacion
 	}
 
@@ -186,8 +218,8 @@ public class Apartado030101 extends Apartado {
 	 * Instruccion if - Ejercicio7.
 	 *
 	 * Modificar los siguientes metodos de la clase Rectangulo de forma que realicen el comportamiento explicado:
-	 * 
-	 *  
+	 *
+	 *
 	 *  <ul>
 	 *  <li>Rectangulo(int base, int altura)
 	 *  	<ul>
@@ -218,9 +250,9 @@ public class Apartado030101 extends Apartado {
 	 */
 	public void ejercicio07() {
 		cabecera("07", "");
-		
+
 		int base=0, altura=0;
-			
+
 		System.out.println("Introduce la base del rectangulo:");
 		base=Teclado.readInteger();
 
@@ -229,16 +261,15 @@ public class Apartado030101 extends Apartado {
 
 		Rectangulo rectangulo= new Rectangulo(base,altura);
 		// Inicio modificacion
-		
-		
+		System.out.println(rectangulo.toString());
 		// Fin modificacion
 	}
 
 	/**
 	 * Instruccion if - Ejercicio8.
 	 *
-	 * Leer dos numeros introducidos por teclado. 
-	 * Compararlos y si el primero es mayor que el segundo intercambiarlos. 
+	 * Leer dos numeros introducidos por teclado.
+	 * Compararlos y si el primero es mayor que el segundo intercambiarlos.
 	 * Mostrar los numeros
 	 *
 	 */
@@ -246,8 +277,20 @@ public class Apartado030101 extends Apartado {
 		cabecera("08", "");
 
 		// Inicio modificacion
-		
-		
+		double num1, num2, a, b;
+		System.out.println("Introduzca el primer número: ");
+		num1 = Teclado.readDouble();
+		System.out.println("Introduzca el segundo número: ");
+		num2 = Teclado.readDouble();
+
+		if(num1<num2){
+			a=num1;
+			b=num2;
+		}else{
+			b=num1;
+			a=num2;
+		}
+			System.out.println("El primer número es: "+a+"\nEl segundo número es: "+b);
 		// Fin modificacion
 	}
 
@@ -266,15 +309,14 @@ public class Apartado030101 extends Apartado {
 
         NumeroEntero n1 = new NumeroEntero(10);
         NumeroEntero n2 = new NumeroEntero(10);
-        
+
         if (n1 == n2){
                 System.out.println("N1 y N2 son iguales");
         }
-
         if (n1 != n2){
                 System.out.println("N1 y N2 son distintos");
         }
-	
+
 	}
 
 	/**
@@ -298,7 +340,7 @@ public class Apartado030101 extends Apartado {
         NumeroEntero n1 = new NumeroEntero(10);
         NumeroEntero n2 = new NumeroEntero(10);
         NumeroEntero aux=n1;
-        
+
         if (n1.equals(n2)==true){
         	System.out.println("N1 y N2 son iguales");
         }
@@ -314,6 +356,5 @@ public class Apartado030101 extends Apartado {
         if (n2.equals(aux)==true){
             System.out.println("N2 y AUX son iguales");
         }
-		
 	}
 }
