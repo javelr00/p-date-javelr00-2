@@ -126,7 +126,6 @@ public class NumeroEntero {
 		}else if(a.getValor()>b.getValor()){
 			estado=1;
 		}
-		System.out.println(estado);
 		return estado;
 	}
 	 // -- Fin modificacion del ejercicio02 Apartado030102.

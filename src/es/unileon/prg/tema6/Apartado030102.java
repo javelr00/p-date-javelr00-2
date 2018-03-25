@@ -95,10 +95,10 @@ public class Apartado030102 extends Apartado {
 		cabecera("03", "");
 
         // Inicio modificacion
-        NumeroEntero n1 = new NumeroEntero(10);
+        NumeroEntero n1 = new NumeroEntero(11);
         NumeroEntero n2 = new NumeroEntero(10);
         // -- Quitar comentarios
-				NumeroEntero.compareTo(n1, n2);
+				System.out.println(NumeroEntero.compareTo(n1, n2));
         /*if (n1 > n2){
         	 System.out.println("N1-> "+n1);
              System.out.println("N1 es mayor que N2");

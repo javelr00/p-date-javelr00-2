@@ -8,7 +8,7 @@ package es.unileon.prg.tema6;
 public class Rectangulo {
 	/**
 	 * Base del rectangulo
-	 * 
+	 *
 	 */
 	private int base;
 	/**
@@ -111,6 +111,16 @@ public class Rectangulo {
 		return esUnCuadrado;
 
 	}
+
+public static int compareTo(Rectangulo rectangulo){
+	if(rectangulo.getArea()>0){
+		return 1;
+	}else if(rectangulo.getArea()<0){
+		return -1;
+	}else{
+		return 0;
+	}
+}
 
 	/**
 	 * Retorna el area del rectangulo
