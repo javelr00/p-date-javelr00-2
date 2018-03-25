@@ -19,8 +19,8 @@ public class Apartado030202 extends Apartado {
 	/**
 	 * Instruccion while - Ejercicio1.
 	 *
-	 * Programar el codigo que lea 10 numeros enteros por teclado y diga cual es el mayor 
-	 * y el menor de todos ellos (similar al ejercicio05() de la clase Apartado030201 pero 
+	 * Programar el codigo que lea 10 numeros enteros por teclado y diga cual es el mayor
+	 * y el menor de todos ellos (similar al ejercicio05() de la clase Apartado030201 pero
 	 * utilizando la sentencia while)
 	 *
 	 */
@@ -28,25 +28,56 @@ public class Apartado030202 extends Apartado {
 		cabecera("01","");
 
 		// Inicio modificacion
-		
-		
-		
-					
-        // Fin modificacion
+		int n, a=0, numMayor=0, numMenor=0, i=0, j=0, k=0;
+		int[] num = new int[10];
+
+		while(i<10){
+			System.out.println("Introduce un número: ");
+			n=Teclado.readInteger();
+			num [i] = n;
+			i=i+1;
+		}
+
+		while(j<10){
+			if(num[j]>numMayor)
+				numMayor=num[j];
+			j=j+1;
+		}
+		System.out.println("El mayor número es "+numMayor);
+
+		while(k<10){
+			if(num[k]<numMenor)
+				numMenor=num[k];
+				k=k+1;
+		}
+		System.out.println("El menor número es "+numMenor);
+    // Fin modificacion
 	}
 
 	/**
 	 * Instruccion while - Ejercicio2.
 	 *
-	 * Programar el  codigo que lea numeros enteros hasta que el usuario introduzca un valor igual 
+	 * Programar el  codigo que lea numeros enteros hasta que el usuario introduzca un valor igual
 	 * a cero  o hasta que el usuario introduzca dos veces seguidas el mismo numero.
 	 */
 	public void ejercicio02() {
 		cabecera("02", "");
 
 		// Inicio modificacion
-		
-		
+		int i=0, n=1;
+		int[] num = new int[20];
+
+		while(n==0){
+			//System.out.println(num[i]);
+			System.out.println("Introduce un número: ");
+			n=Teclado.readInteger();
+			i=i+1;
+			num [i] = (int) n;
+			System.out.println(num[i]);
+			System.out.println(num[i-1]);
+		}
+		return;
+
 		// Fin modificacion
 	}
 
@@ -55,32 +86,54 @@ public class Apartado030202 extends Apartado {
 	 *
 	 * Programar el codigo  que sume los numeros pares por un lado y los impares por otro  entre
 	 * dos numeros enteros introducidos por el usuario.
-	 * 
+	 *
 	 * Nota: similar al ejercicio06() de la clase Apartado030201 pero utilizando la sentencia while
 	 * y sin suponer que el primer numero es siempre par)
-	 * 
+	 *
 	 * Nota : Los numeros enteros se manejaran como objetos la clase NumeroEntero
-	 * 
+	 *
 	 */
 	public void ejercicio03() {
 		cabecera("03", "");
 
 		// Inicio modificacion
+		int a, pares=0, impares=0, i=0;
+		while(i<2){
+			System.out.println("Introduzca un número: ");
+			a= Teclado.readInteger();
+			i++;
+			if(a%2==0){
+				pares=pares+a;
+			}else{
+				impares=impares+a;
+			}
+		}
+		System.out.println("Suma de los números pares="+pares);
+		System.out.println("Suma de los números impares="+impares);
 		// Fin modificacion
 	}
 
 	/**
 	 * Instruccion while - Ejercicio4.
 	 *
-	 * Programar el codigo  que calcule la media, de una serie de numeros introducidos por teclado. 
-	 * La serie acaba cuando se introduce el tercer 5. Los 5 introducidos se procesaran como numeros 
+	 * Programar el codigo  que calcule la media, de una serie de numeros introducidos por teclado.
+	 * La serie acaba cuando se introduce el tercer 5. Los 5 introducidos se procesaran como numeros
 	 * de la serie, es decir, intervendran a la hora de calcular los valores pedidos.
-	 * 
+	 *
 	 */
 	public void ejercicio04() {
 		cabecera("04", "");
 
 		// Inicio modificacion
+		int n, s=0, med=0;
+		int[] num = new int[20];
+
+		for(int i=0;i<num.length;i++){
+			n=Teclado.readInteger();
+			n=num[i];
+			s=num[i]+s;
+		}
+		med=s/num.length;
 		// Fin modificacion
 	}
 
@@ -93,7 +146,7 @@ public class Apartado030202 extends Apartado {
 	 * <li>	int inverso(): retornara el inverso del numero (Ej.: 23 -> 32)
 	 * <li>	booleam  esCapicua(): retorna si el numero es o no capicua.
 	 * </ul>
-	 * 
+	 *
 	 * Probar los nuevos metodos de la clase numero en el metodo ejercicio05.
 	 *
 	 */
@@ -101,21 +154,22 @@ public class Apartado030202 extends Apartado {
 		cabecera("05","");
 
 		// Inicio modificacion
+		
         // Fin modificacion
 	}
 
 	/**
 	 * Instruccion while - Ejercicio6.
-	 * 
+	 *
 	 * Teniendo en cuenta el siguiente diagrama de clases del enunciado de la practica
-	 * 
+	 *
 	 * <ul>
 	 * <li> La clase Partido representa partidos de tenis en los que intervienen dos jugadores
 	 * <li> Cada jugador tiene un nombre y una puntuacion en el ranking de la ATP
 	 * </ul>
-	 * 
+	 *
 	 * Se pide:
-	 * 
+	 *
 	 * <ul>
 	 * <li>	Consultar el codigo de las clase Partido y Jugador
 	 * <li>	Implementar el metodo jugar de la clase Partido
@@ -124,7 +178,7 @@ public class Apartado030202 extends Apartado {
 	 * <li> El ganador del partido aumentara en 1 punto su puntuacion en el ranking.
 	 * <li>	Nota 1:
 	 * <ul>	Una  forma de generar el ganador puede ser:
-	 * <li>	
+	 * <li>
 	 * <li>	resultado1= Math.random() * puntos_jugador1;
 	 * <li> resultado2= Math.random() * puntos_jugador2;
 	 * <li>  el que tenga mayor resultado ganara el partido
@@ -137,19 +191,19 @@ public class Apartado030202 extends Apartado {
 	 * </ul>
 	 *
 	 */
-	
+
 	public void ejercicio06() {
 		cabecera("06", "");
-		
+
 		Jugador j1=new Jugador("Federer",5);
         Jugador j2=new Jugador("Nadal",4);
-        
-        
+
+
         System.out.println("Los Jugadores del Partido son " + j1.getNombre() + " y "+j2.getNombre());
-        
+
         Partido partido=new Partido(j1,j2);
         partido.jugar();
-        
+
         System.out.println("El ganador es: "+ partido.ganador().getNombre());
 	}
 }
